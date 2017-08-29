@@ -1,0 +1,12 @@
+F:\src\Inventory\InventorySystem\InventorySystem\bin\Debug\InventorySystem.exe.config
+F:\src\Inventory\InventorySystem\InventorySystem\bin\Debug\InventorySystem.exe
+F:\src\Inventory\InventorySystem\InventorySystem\bin\Debug\InventorySystem.pdb
+F:\src\Inventory\InventorySystem\InventorySystem\bin\Debug\EntityFramework.dll
+F:\src\Inventory\InventorySystem\InventorySystem\bin\Debug\EntityFramework.SqlServer.dll
+F:\src\Inventory\InventorySystem\InventorySystem\bin\Debug\EntityFramework.xml
+F:\src\Inventory\InventorySystem\InventorySystem\bin\Debug\EntityFramework.SqlServer.xml
+F:\src\Inventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.csprojResolveAssemblyReference.cache
+F:\src\Inventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.Properties.Resources.resources
+F:\src\Inventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.csproj.GenerateResource.Cache
+F:\src\Inventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.exe
+F:\src\Inventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.pdb
