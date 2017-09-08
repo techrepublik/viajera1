@@ -10,3 +10,15 @@ F:\src\Inventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.Prope
 F:\src\Inventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.csproj.GenerateResource.Cache
 F:\src\Inventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.exe
 F:\src\Inventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.pdb
+C:\Users\Tj101-thonix\Documents\GitHub\viajera1\InventorySystem\bin\Debug\InventorySystem.exe.config
+C:\Users\Tj101-thonix\Documents\GitHub\viajera1\InventorySystem\obj\Debug\InventorySystem.exe
+C:\Users\Tj101-thonix\Documents\GitHub\viajera1\InventorySystem\obj\Debug\InventorySystem.pdb
+C:\Users\Tj101-thonix\Documents\GitHub\viajera1\InventorySystem\bin\Debug\InventorySystem.exe
+C:\Users\Tj101-thonix\Documents\GitHub\viajera1\InventorySystem\bin\Debug\InventorySystem.pdb
+C:\Users\Tj101-thonix\Documents\GitHub\viajera1\InventorySystem\bin\Debug\EntityFramework.dll
+C:\Users\Tj101-thonix\Documents\GitHub\viajera1\InventorySystem\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Tj101-thonix\Documents\GitHub\viajera1\InventorySystem\bin\Debug\EntityFramework.xml
+C:\Users\Tj101-thonix\Documents\GitHub\viajera1\InventorySystem\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Tj101-thonix\Documents\GitHub\viajera1\InventorySystem\obj\Debug\InventorySystem.csprojResolveAssemblyReference.cache
+C:\Users\Tj101-thonix\Documents\GitHub\viajera1\InventorySystem\obj\Debug\InventorySystem.Properties.Resources.resources
+C:\Users\Tj101-thonix\Documents\GitHub\viajera1\InventorySystem\obj\Debug\InventorySystem.csproj.GenerateResource.Cache

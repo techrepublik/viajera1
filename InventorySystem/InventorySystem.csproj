@@ -57,6 +57,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dal\man\AreaManager.cs" />
+    <Compile Include="dal\man\CategoryManager.cs" />
+    <Compile Include="dal\man\DataRepository.cs" />
+    <Compile Include="dal\man\IDataRepository.cs" />
+    <Compile Include="dal\man\OutInfoManager.cs" />
+    <Compile Include="dal\man\ProductInManager.cs" />
+    <Compile Include="dal\man\ProductManager.cs" />
+    <Compile Include="dal\man\ProductOutManager.cs" />
+    <Compile Include="dal\man\PurchaseOrderManager.cs" />
+    <Compile Include="dal\man\SupplierManager.cs" />
+    <Compile Include="dal\man\UnitManager.cs" />
     <Compile Include="data\Area.cs" />
     <Compile Include="data\Category.cs" />
     <Compile Include="data\InventoryModel.cs" />
@@ -98,9 +109,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="dal\man\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
