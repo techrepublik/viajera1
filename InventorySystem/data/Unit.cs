@@ -11,7 +11,7 @@ namespace InventorySystem.data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Unit()
         {
-            Products = new HashSet<Product>();
+            ProductIns = new HashSet<ProductIn>();
         }
 
         public int UnitId { get; set; }
@@ -20,6 +20,6 @@ namespace InventorySystem.data
         public string UnitName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<ProductIn> ProductIns { get; set; }
     }
 }

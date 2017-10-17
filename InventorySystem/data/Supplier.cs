@@ -11,7 +11,7 @@ namespace InventorySystem.data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Supplier()
         {
-            Products = new HashSet<Product>();
+            InInfos = new HashSet<InInfo>();
         }
 
         public int SupplierId { get; set; }
@@ -28,6 +28,6 @@ namespace InventorySystem.data
         public bool? SupplierIsActive { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<InInfo> InInfos { get; set; }
     }
 }

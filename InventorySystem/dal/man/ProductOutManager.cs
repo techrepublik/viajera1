@@ -32,6 +32,38 @@ namespace InventorySystem.dal.man
             }
             return a.ProductOutId;
         }
+        public static int Save(List<ProductOut> products, int iPOid)
+        {
+            try
+            {
+                using (_d = new DataRepository<ProductOut>())
+                {
+                    foreach (var product in products)
+                    {
+                        var a = new ProductOut
+                        {
+                            ProductOutId = product.ProductOutId,
+                            ProductInId = product.ProductInId,
+                            ProductOutIsActive = product.ProductOutIsActive,
+                            ProductOutPrice = product.ProductOutPrice,
+                            ProductOutQnty = product.ProductOutQnty,
+                            OutInfoId = iPOid
+                        };
+                        if (product.ProductOutId > 0)
+                            _d.Update(a);
+                        else
+                            _d.Add(a);
+                    }
+                    _d.SaveChanges();
+                }
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return 0;
+            }
+        }
         public static bool Delete(ProductOut prodOut)
         {
             using (_d = new DataRepository<ProductOut>())

@@ -28,6 +28,36 @@ namespace InventorySystem.dal.man
             }
             return a.CategoryId;
         }
+        public static int Save(List<Category> categories)
+        {
+            try
+            {
+                using (_d = new DataRepository<Category>())
+                {
+                    foreach (var category in categories)
+                    {
+                        var a = new Category
+                        {
+                            CategoryId = category.CategoryId,
+                            CategoryName = category.CategoryName,
+                            CategoryDescription = category.CategoryDescription
+                        };
+
+                        if (category.CategoryId > 0)
+                            _d.Update(a);
+                        else
+                            _d.Add(a);
+                    }
+                    _d.SaveChanges();
+                }
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return 0;
+            }
+        }
         public static bool Delete(Category category)
         {
             using (_d = new DataRepository<Category>())
@@ -49,9 +79,10 @@ namespace InventorySystem.dal.man
         public static List<Category> GetAll()
         {
             using (_d = new DataRepository<Category>())
+            {
                 _d.LazyLoadingEnabled = false;
-            return _d.GetAll().ToList();
+                return _d.GetAll().ToList();
+            }
         }
-
     }
 }

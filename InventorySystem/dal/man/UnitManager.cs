@@ -28,6 +28,34 @@ namespace InventorySystem.dal.man
             }
             return a.UnitId;
         }
+        public static int Save(List<Unit> units)
+        {
+            try
+            {
+                using (_d = new DataRepository<Unit>())
+                {
+                    foreach (var unit in units)
+                    {
+                        var a = new Unit
+                        {
+                            UnitId = unit.UnitId,
+                            UnitName = unit.UnitName
+                        };
+                        if (unit.UnitId > 0)
+                            _d.Update(a);
+                        else
+                            _d.Add(a);
+                    }
+                    _d.SaveChanges();
+                }
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return 0;
+            }
+        }
 
         public static bool Delete(Unit unit)
         {

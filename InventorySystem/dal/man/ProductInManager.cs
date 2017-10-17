@@ -21,7 +21,9 @@ namespace InventorySystem.dal.man
                     ProductInPrice = prodIn.ProductInPrice,
                     ProductInExpiryDate = prodIn.ProductInExpiryDate,
                     ProductInIsActive = prodIn.ProductInIsActive,
-                    ProductId = prodIn.ProductId
+                    ProductId = prodIn.ProductId,
+                    InInfoId = prodIn.InInfoId,
+                    UnitId = prodIn.UnitId,
                 };
                 using (_d = new DataRepository<ProductIn>())
                 {
@@ -32,6 +34,42 @@ namespace InventorySystem.dal.man
                     _d.SaveChanges();
                 }
                 return a.ProductInId;
+        }
+        public static int Save(List<ProductIn> prodIns, int iInfoId)
+        {
+            try
+            {
+                using (_d = new DataRepository<ProductIn>())
+                {
+                    foreach (var prodIn in prodIns)
+                    {
+                        var a = new ProductIn
+                        {
+                            ProductInId = prodIn.ProductInId,
+                            ProductInReceiptNo = prodIn.ProductInReceiptNo,
+                            ProductInDate = prodIn.ProductInDate,
+                            ProductInQnty = prodIn.ProductInQnty,
+                            ProductInPrice = prodIn.ProductInPrice,
+                            ProductInExpiryDate = prodIn.ProductInExpiryDate,
+                            ProductInIsActive = prodIn.ProductInIsActive,
+                            ProductId = prodIn.ProductId,
+                            InInfoId = iInfoId,
+                            UnitId = prodIn.UnitId,
+                        };
+                        if (prodIn.ProductInId > 0)
+                            _d.Update(a);
+                        else
+                            _d.Add(a);
+                    }
+                    _d.SaveChanges();
+                }
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return 0;
+            }
         }
         public static bool Delete(ProductIn prodIn)
         {
@@ -58,15 +96,14 @@ namespace InventorySystem.dal.man
                 _d.LazyLoadingEnabled = false;
                 return _d.GetAll().ToList();
             }
-        //}
-        //public static List<ProductIn> GetAll(bool bActive)
-        //{
-        //    using (_d = new DataRepository<ProductIn>())
-        //    {
-        //        _d.LazyLoadingEnabled = false;
-        //        return _d.Find(f => f.ProductInIsActive == bActive)
-        //            .OrderBy(o => o.ProductInReceiptNo).ThenBy(o => o.ProductInPrice).ToList();
-        //    }
+        }
+        public static List<ProductIn> GetAll(bool bActive, int iId)
+        {
+            using (_d = new DataRepository<ProductIn>())
+            {
+                _d.LazyLoadingEnabled = false;
+                return _d.Find(f => f.ProductInIsActive == bActive && f.InInfoId == iId).ToList();
+            }
         }
     }
 }

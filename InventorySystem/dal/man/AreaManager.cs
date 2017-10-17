@@ -29,6 +29,36 @@ namespace InventorySystem.dal.man
 
             return a.AreaId;
         }
+        public static int Save(List<Area> areas)    
+        {
+            try
+            {
+                using (_d = new DataRepository<Area>())
+                {
+                    foreach (var area in areas)
+                    {
+                        var a = new Area
+                        {
+                            AreaId = area.AreaId,
+                            AreaName = area.AreaName,
+                            AreaIsActive = area.AreaIsActive
+                        };
+
+                        if (area.AreaId > 0)
+                            _d.Update(a);
+                        else _d.Add(a);
+                    }
+                    _d.SaveChanges();
+                }
+
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return 0;
+            }
+        }
         public static bool Delete(Area area)
         {
             using (_d = new DataRepository<Area>())
@@ -51,8 +81,11 @@ namespace InventorySystem.dal.man
 
         public static List<Area> GetAll()
         {
-            _d.LazyLoadingEnabled = false;
-            return _d.GetAll().OrderBy(o => o.AreaName).ToList();
+            using (_d = new DataRepository<Area>())
+            {
+                _d.LazyLoadingEnabled = false;
+                return _d.GetAll().OrderBy(o => o.AreaName).ToList();
+            }
         }
         public static List<Area> GetAll(bool bActive)
         {

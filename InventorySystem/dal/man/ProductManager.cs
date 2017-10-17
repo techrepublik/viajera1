@@ -19,10 +19,8 @@ namespace InventorySystem.dal.man
                 ProductName = prod.ProductName,
                 ProductLevel = prod.ProductLevel,
                 ProductIsActive = prod.ProductIsActive,
-                SupplierId = prod.SupplierId,
-                UnitId = prod.UnitId,
+                ProductDescription = prod.ProductDescription,
                 CategoryId = prod.CategoryId
-
             };
             using (_d = new DataRepository<Product>())
             {

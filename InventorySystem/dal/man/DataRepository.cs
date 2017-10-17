@@ -68,6 +68,7 @@ namespace InventorySystem.dal.man
             {
                 throw new ArgumentNullException("entity");
             }
+            
             _objectSet.Attach(entity);
             //_objectSet.DeleteObject(entity);
             _objectSet.Remove(entity);

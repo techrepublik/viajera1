@@ -8,13 +8,15 @@ namespace InventorySystem.data
     public partial class InventoryModel : DbContext
     {
         public InventoryModel()
-            : base("name=InventoryData")
+            : base("name=InventoryModel1")
         {
         }
 
         public virtual DbSet<Area> Areas { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<InInfo> InInfos { get; set; }
         public virtual DbSet<OutInfo> OutInfos { get; set; }
+        public virtual DbSet<PODetail> PODetails { get; set; }
         public virtual DbSet<ProductIn> ProductIns { get; set; }
         public virtual DbSet<ProductOut> ProductOuts { get; set; }
         public virtual DbSet<Product> Products { get; set; }
@@ -41,6 +43,19 @@ namespace InventorySystem.data
                 .Property(e => e.CategoryDescription)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<InInfo>()
+                .Property(e => e.InInfoCode)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<InInfo>()
+                .Property(e => e.InInfoNote)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<InInfo>()
+                .HasMany(e => e.ProductIns)
+                .WithOptional(e => e.InInfo)
+                .WillCascadeOnDelete();
+
             modelBuilder.Entity<OutInfo>()
                 .Property(e => e.OutInfoCode)
                 .IsUnicode(false);
@@ -66,18 +81,23 @@ namespace InventorySystem.data
                 .IsUnicode(false);
 
             modelBuilder.Entity<Product>()
-                .HasMany(e => e.ProductIns)
+                .HasMany(e => e.PODetails)
                 .WithOptional(e => e.Product)
                 .WillCascadeOnDelete();
 
             modelBuilder.Entity<Product>()
-                .HasMany(e => e.PurchaseOrders)
+                .HasMany(e => e.ProductIns)
                 .WithOptional(e => e.Product)
                 .WillCascadeOnDelete();
 
             modelBuilder.Entity<PurchaseOrder>()
                 .Property(e => e.PurchaseOrderNote)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<PurchaseOrder>()
+                .HasMany(e => e.PODetails)
+                .WithOptional(e => e.PurchaseOrder)
+                .WillCascadeOnDelete();
 
             modelBuilder.Entity<Supplier>()
                 .Property(e => e.SupplierName)
@@ -95,9 +115,19 @@ namespace InventorySystem.data
                 .Property(e => e.SupplierContactPerson)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Supplier>()
+                .HasMany(e => e.InInfos)
+                .WithOptional(e => e.Supplier)
+                .WillCascadeOnDelete();
+
             modelBuilder.Entity<Unit>()
                 .Property(e => e.UnitName)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Unit>()
+                .HasMany(e => e.ProductIns)
+                .WithOptional(e => e.Unit)
+                .WillCascadeOnDelete();
         }
     }
 }

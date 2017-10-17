@@ -41,10 +41,22 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Equin.ApplicationFramework.BindingListView">
+      <HintPath>F:\src\util\blw-1.2.0.0-bin\Equin.ApplicationFramework.BindingListView.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Shared.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Win.Misc.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Win.UltraWinEditors.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Win.UltraWinSchedule.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.UltraWinTabbedMdi.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.UltraWinTabControl.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.UltraWinToolbars.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Win.v12.1, Version=12.1.20121.2135, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -61,31 +73,79 @@
     <Compile Include="dal\man\CategoryManager.cs" />
     <Compile Include="dal\man\DataRepository.cs" />
     <Compile Include="dal\man\IDataRepository.cs" />
+    <Compile Include="dal\man\InInfoManager.cs" />
     <Compile Include="dal\man\OutInfoManager.cs" />
+    <Compile Include="dal\man\PODetailManager.cs" />
     <Compile Include="dal\man\ProductInManager.cs" />
     <Compile Include="dal\man\ProductManager.cs" />
     <Compile Include="dal\man\ProductOutManager.cs" />
     <Compile Include="dal\man\PurchaseOrderManager.cs" />
     <Compile Include="dal\man\SupplierManager.cs" />
     <Compile Include="dal\man\UnitManager.cs" />
+    <Compile Include="dal\obj\ProductInventoryData.cs" />
+    <Compile Include="dal\obj\ProductOutData.cs" />
+    <Compile Include="dal\sta\InventoryQueries.cs" />
+    <Compile Include="dal\sta\StandardQueries.cs" />
     <Compile Include="data\Area.cs" />
     <Compile Include="data\Category.cs" />
+    <Compile Include="data\InInfo.cs" />
     <Compile Include="data\InventoryModel.cs" />
     <Compile Include="data\OutInfo.cs" />
+    <Compile Include="data\PODetail.cs" />
     <Compile Include="data\Product.cs" />
     <Compile Include="data\ProductIn.cs" />
     <Compile Include="data\ProductOut.cs" />
     <Compile Include="data\PurchaseOrder.cs" />
     <Compile Include="data\Supplier.cs" />
     <Compile Include="data\Unit.cs" />
-    <Compile Include="forms\Form1.cs">
+    <Compile Include="forms\InventoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="forms\InventoryForm.Designer.cs">
+      <DependentUpon>InventoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Preferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Preferences.Designer.cs">
+      <DependentUpon>Preferences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ProductListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\ProductListForm.Designer.cs">
+      <DependentUpon>ProductListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\SupplierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\SupplierForm.Designer.cs">
+      <DependentUpon>SupplierForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="forms\InventoryForm.resx">
+      <DependentUpon>InventoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Preferences.resx">
+      <DependentUpon>Preferences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\ProductListForm.resx">
+      <DependentUpon>ProductListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\SupplierForm.resx">
+      <DependentUpon>SupplierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -96,6 +156,19 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\InventorySystem.dal.obj.ProductInventoryData.datasource" />
+    <None Include="Properties\DataSources\InventorySystem.dal.obj.ProductOutData.datasource" />
+    <None Include="Properties\DataSources\InventorySystem.data.Area.datasource" />
+    <None Include="Properties\DataSources\InventorySystem.data.Category.datasource" />
+    <None Include="Properties\DataSources\InventorySystem.data.InInfo.datasource" />
+    <None Include="Properties\DataSources\InventorySystem.data.OutInfo.datasource" />
+    <None Include="Properties\DataSources\InventorySystem.data.PODetail.datasource" />
+    <None Include="Properties\DataSources\InventorySystem.data.Product.datasource" />
+    <None Include="Properties\DataSources\InventorySystem.data.ProductIn.datasource" />
+    <None Include="Properties\DataSources\InventorySystem.data.ProductOut.datasource" />
+    <None Include="Properties\DataSources\InventorySystem.data.PurchaseOrder.datasource" />
+    <None Include="Properties\DataSources\InventorySystem.data.Supplier.datasource" />
+    <None Include="Properties\DataSources\InventorySystem.data.Unit.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -109,7 +182,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\UtilityManager\UtilityManager.csproj">
+      <Project>{52f42c75-b40e-4fca-9c57-3dab29618a30}</Project>
+      <Name>UtilityManager</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

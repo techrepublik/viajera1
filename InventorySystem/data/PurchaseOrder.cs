@@ -8,6 +8,12 @@ namespace InventorySystem.data
 
     public partial class PurchaseOrder
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PurchaseOrder()
+        {
+            PODetails = new HashSet<PODetail>();
+        }
+
         public int PurchaseOrderId { get; set; }
 
         public int? PurchaseOrderNo { get; set; }
@@ -21,6 +27,7 @@ namespace InventorySystem.data
 
         public int? ProductId { get; set; }
 
-        public virtual Product Product { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PODetail> PODetails { get; set; }
     }
 }
